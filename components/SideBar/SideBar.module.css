@@ -1,0 +1,13 @@
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #1e5f74;
+  flex-direction: column;
+  border-right: 1px solid;
+  border-radius: 0;
+  border-color: rgba(64, 194, 133, 0.693);
+  transition: 0.8s ease;
+  font-family: Roboto;
+  z-index: 10;
+}

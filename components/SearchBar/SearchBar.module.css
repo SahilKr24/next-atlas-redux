@@ -1,0 +1,24 @@
+.searchcontainer {
+  display: inline-flex;
+  flex-flow: row;
+  margin: 0 auto;
+  align-items: normal;
+}
+
+.searchbar {
+  margin: 0 auto;
+  width: 100%;
+  padding: 5px 20px;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 2px solid #000000;
+  outline: none;
+}
+
+.searchicon {
+  position: relative;
+  float: left;
+  width: 75px;
+  height: 75px;
+  top: -62px;
+}
