@@ -1,11 +1,15 @@
 import styles from "./SideBar.module.css";
-import React from "react";
+import React, { useContext } from "react";
+import { FilterProvider, STATUS } from "../../util/reducer";
 
 export const SidebarComponent = ({ width, height }) => {
-  const [status, setStatus] = React.useState(true);
+  const { state } = useContext(FilterProvider);
+  const status = state.status;
+
+  const { dispatch } = useContext(FilterProvider);
 
   const toggle = () => {
-    setStatus(!status);
+    dispatch({ type: STATUS });
   };
 
   return (
@@ -38,7 +42,10 @@ export const SidebarComponent = ({ width, height }) => {
               <span
                 style={{
                   paddingLeft: 30,
-                  display: status ? "block" : "none",
+                  visibility: status ? "inherit" : "hidden",
+                  transition: "opacity 0.3s linear",
+                  transitionDelay: "0.5s",
+                  opacity: status ? 1 : 0,
                   fontSize: 20,
                   color: "#FFFFFF",
                 }}
@@ -63,7 +70,10 @@ export const SidebarComponent = ({ width, height }) => {
                     paddingLeft: 10,
                     fontSize: 20,
                     color: "#FFFFFF",
-                    display: status ? "block" : "none",
+                    visibility: status ? "inherit" : "hidden",
+                    transition: "opacity 0.3s linear",
+                    transitionDelay: "0.5s",
+                    opacity: status ? 1 : 0,
                   }}
                 >
                   Home
@@ -86,10 +96,13 @@ export const SidebarComponent = ({ width, height }) => {
                     paddingLeft: 10,
                     fontSize: 20,
                     color: "#FFFFFF",
-                    display: status ? "block" : "none",
+                    visibility: status ? "inherit" : "hidden",
+                    transition: "opacity 0.3s linear",
+                    transitionDelay: "0.5s",
+                    opacity: status ? 1 : 0,
                   }}
                 >
-                  About Me
+                  About
                 </span>
               </div>
             </a>
