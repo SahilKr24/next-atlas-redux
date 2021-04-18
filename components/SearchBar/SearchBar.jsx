@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FilterProvider, NAME } from "../../util/reducer";
+import { FilterProvider, FROM, NAME, TO } from "../../util/reducer";
 import Paper from "../Paper";
 import styles from "./SearchBar.module.css";
 
@@ -8,6 +8,14 @@ const SearchBar = () => {
 
   const handleNameChange = (e) => {
     dispatch({ type: NAME, payload: { name: e.target.value } });
+  };
+
+  const handleToChange = (e) => {
+    dispatch({ type: TO, payload: { to: e.target.value } });
+  };
+
+  const handleFromChange = (e) => {
+    dispatch({ type: FROM, payload: { from: e.target.value } });
   };
   return (
     <Paper>
@@ -44,7 +52,11 @@ const SearchBar = () => {
             }}
           >
             From:
-            <input type="date" className={styles.searchbar} />
+            <input
+              onChange={handleFromChange}
+              type="date"
+              className={styles.searchbar}
+            />
           </div>
           <div
             style={{
@@ -54,7 +66,11 @@ const SearchBar = () => {
             }}
           >
             To:
-            <input type="date" className={styles.searchbar} />
+            <input
+              type="date"
+              onChange={handleToChange}
+              className={styles.searchbar}
+            />
           </div>
         </form>
       </div>

@@ -44,7 +44,7 @@ export const SidebarComponent = ({ width, height }) => {
                   paddingLeft: 30,
                   visibility: status ? "inherit" : "hidden",
                   transition: "opacity 0.3s linear",
-                  transitionDelay: "0.5s",
+                  transitionDelay: "0.4s",
                   opacity: status ? 1 : 0,
                   fontSize: 20,
                   color: "#FFFFFF",
@@ -72,7 +72,7 @@ export const SidebarComponent = ({ width, height }) => {
                     color: "#FFFFFF",
                     visibility: status ? "inherit" : "hidden",
                     transition: "opacity 0.3s linear",
-                    transitionDelay: "0.5s",
+                    transitionDelay: "0.4s",
                     opacity: status ? 1 : 0,
                   }}
                 >
@@ -98,7 +98,7 @@ export const SidebarComponent = ({ width, height }) => {
                     color: "#FFFFFF",
                     visibility: status ? "inherit" : "hidden",
                     transition: "opacity 0.3s linear",
-                    transitionDelay: "0.5s",
+                    transitionDelay: "0.4s",
                     opacity: status ? 1 : 0,
                   }}
                 >

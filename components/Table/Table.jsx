@@ -6,6 +6,7 @@ import Paper from "../Paper";
 import styles from "./Table.module.css";
 
 const Form = () => {
+  const { state } = useContext(FilterProvider);
   const headings = [
     "Sl.No",
     "Meeting Name",
@@ -15,9 +16,12 @@ const Form = () => {
     "End Time",
     "Actions",
   ];
-  const { state } = useContext(FilterProvider);
+
   const value = state.name;
-  const { data } = useSWR(`/api/meeting?search=${value}`);
+  const to = state.to;
+  const from = state.from;
+  const query = `/api/meeting?search=${value}&to=${to}&from=${from}`;
+  const { data } = useSWR(query);
 
   const clear = () => {
     setName("");
@@ -29,9 +33,9 @@ const Form = () => {
 
   const handleSubmit = async (body) => {
     try {
-      mutate(`/api/meeting?search=${value}`, data.concat(body), false);
+      mutate(query, data.concat(body), false);
       await axios.post("/api/meeting", body);
-      mutate(`/api/meeting?search=${value}`);
+      mutate(query);
     } catch (e) {
       console.error(e);
     } finally {
@@ -42,12 +46,12 @@ const Form = () => {
   const handleDelete = async (documentID) => {
     try {
       mutate(
-        `/api/meeting?search=${value}`,
+        query,
         data.filter((document) => document._id != documentID),
         false
       );
       await axios.delete(`/api/meeting/${documentID}`);
-      mutate(`/api/meeting?search=${value}`);
+      mutate(query);
     } catch (e) {
       console.error(e);
     }

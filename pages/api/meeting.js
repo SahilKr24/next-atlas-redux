@@ -1,10 +1,22 @@
 import { connectToDatabase } from "../../util/mongodb";
 
-export const getAll = async (search = "", startDate, toDate = Date.now()) => {
+export const getAll = async (search = "", from, to) => {
   const { client, db } = await connectToDatabase();
+  const selectors = [{ name: { $regex: search } }];
+  if (from) {
+    selectors.push({ date: { $gte: from } });
+  }
+  if (to) {
+    selectors.push({
+      date: {
+        $lte: to,
+      },
+    });
+  }
+  console.log(selectors);
   const meetings = db
     .collection("meetings")
-    .find({ $and: [{ name: { $regex: search } }] })
+    .find({ $and: selectors })
     .toArray();
   return meetings;
 };
@@ -21,8 +33,8 @@ export default async function (req, res) {
     case "GET": {
       try {
         let meetings = [];
-        const { search, startDate, toDate } = req.query;
-        meetings = await getAll(search, startDate, toDate);
+        const { search, from, to } = req.query;
+        meetings = await getAll(search, from, to);
         res.json(meetings);
       } catch (e) {
         console.error(e);
