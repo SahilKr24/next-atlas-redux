@@ -1,8 +1,11 @@
 import styles from "./SideBar.module.css";
 import React, { useContext } from "react";
+import { useRouter } from "next/router";
 import { FilterProvider, STATUS } from "../../util/reducer";
 
 export const SidebarComponent = ({ width, height }) => {
+  const router = useRouter();
+  const path = router.pathname;
   const { state } = useContext(FilterProvider);
   const status = state.status;
 
@@ -60,7 +63,7 @@ export const SidebarComponent = ({ width, height }) => {
                   alignItems: "center",
                   paddingTop: 15,
                   paddingBottom: 15,
-                  background: "#133B5C",
+                  background: path == "/" ? "#133B5C" : "",
                   display: "flex",
                 }}
               >
@@ -88,6 +91,7 @@ export const SidebarComponent = ({ width, height }) => {
                   paddingTop: 15,
                   paddingBottom: 15,
                   display: "flex",
+                  background: path == "/aboutme" ? "#133B5C" : "",
                 }}
               >
                 <img src="./face.svg" height={30} className={styles.icons} />

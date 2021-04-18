@@ -13,7 +13,6 @@ export const getAll = async (search = "", from, to) => {
       },
     });
   }
-  console.log(selectors);
   const meetings = db
     .collection("meetings")
     .find({ $and: selectors })
