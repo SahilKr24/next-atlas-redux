@@ -74,7 +74,7 @@ const Form = () => {
             ))}
           </tr>
           {data?.map((row, index) => (
-            <tr className={styles.tr}>
+            <tr className={styles.tr} key={`table-data-${index}`}>
               <td>{index + 1}</td>
               <td>{row.name}</td>
               <td>{row.numPeople}</td>
