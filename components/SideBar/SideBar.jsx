@@ -2,33 +2,25 @@ import styles from "./SideBar.module.css";
 import React from "react";
 
 export const SidebarComponent = ({ width, height }) => {
-  const [xPosition, setX] = React.useState(-width);
+  const [status, setStatus] = React.useState(true);
 
-  const toggleMenu = () => {
-    if (xPosition < 0) {
-      setX(0);
-    } else {
-      setX(-width + 70);
-    }
+  const toggle = () => {
+    setStatus(!status);
   };
 
-  React.useEffect(() => {
-    setX(0);
-  }, []);
   return (
     <React.Fragment>
       <div
         className={styles.sidebar}
         style={{
-          transform: `translatex(${xPosition}px)`,
-          width: width,
+          width: status ? width : 70,
           height: height,
         }}
       >
         <div>
           <div>
             <div
-              onClick={() => toggleMenu()}
+              onClick={() => toggle()}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -43,7 +35,14 @@ export const SidebarComponent = ({ width, height }) => {
                 height={40}
                 className={styles.icons}
               />
-              <span style={{ paddingLeft: 40, fontSize: 20, color: "#FFFFFF" }}>
+              <span
+                style={{
+                  paddingLeft: 30,
+                  display: status ? "block" : "none",
+                  fontSize: 20,
+                  color: "#FFFFFF",
+                }}
+              >
                 1806510
               </span>
             </div>
@@ -63,6 +62,7 @@ export const SidebarComponent = ({ width, height }) => {
                   paddingLeft: 10,
                   fontSize: 20,
                   color: "#FFFFFF",
+                  display: status ? "block" : "none",
                 }}
               >
                 Home
@@ -83,6 +83,7 @@ export const SidebarComponent = ({ width, height }) => {
                   paddingLeft: 10,
                   fontSize: 20,
                   color: "#FFFFFF",
+                  display: status ? "block" : "none",
                 }}
               >
                 About Me
@@ -96,7 +97,7 @@ export const SidebarComponent = ({ width, height }) => {
 };
 
 const SideBar = () => {
-  return <SidebarComponent width={270} height={"100vh"} />;
+  return <SidebarComponent width={235} height={"100vh"} />;
 };
 
 export default SideBar;

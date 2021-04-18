@@ -2,7 +2,7 @@ const MainContent = ({ children }) => {
   return (
     <div
       style={{
-        marginLeft: 270,
+        marginLeft: 235,
         padding: 40,
       }}
     >
