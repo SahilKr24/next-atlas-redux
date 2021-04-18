@@ -40,6 +40,7 @@ export const SidebarComponent = ({ width, height }) => {
               <img
                 src="./menu_black_24dp.svg"
                 height={40}
+                alt="hamburger menu"
                 className={styles.icons}
               />
               <span
@@ -67,7 +68,12 @@ export const SidebarComponent = ({ width, height }) => {
                   display: "flex",
                 }}
               >
-                <img src="./home.svg" height={30} className={styles.icons} />
+                <img
+                  src="./home.svg"
+                  height={30}
+                  className={styles.icons}
+                  alt="home"
+                />
                 <span
                   style={{
                     paddingLeft: 10,
@@ -94,7 +100,12 @@ export const SidebarComponent = ({ width, height }) => {
                   background: path == "/aboutme" ? "#133B5C" : "",
                 }}
               >
-                <img src="./face.svg" height={30} className={styles.icons} />
+                <img
+                  src="./face.svg"
+                  height={30}
+                  className={styles.icons}
+                  alt="face"
+                />
                 <span
                   style={{
                     paddingLeft: 10,

@@ -35,8 +35,9 @@ const SearchBar = () => {
             }}
           >
             <span>
-              <img src="./search.svg" />
+              <img src="./search.svg" alt="search icon" />
             </span>
+
             <input
               onChange={handleNameChange}
               type="text"

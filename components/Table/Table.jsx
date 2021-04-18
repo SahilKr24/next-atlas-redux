@@ -33,6 +33,18 @@ const Form = () => {
 
   const handleSubmit = async (body) => {
     try {
+      if (
+        !body.name ||
+        !body.numPeople ||
+        !body.date ||
+        !body.startTime ||
+        !body.endTime
+      ) {
+        alert(
+          "One of the input fields is empty! Please re-check the provided input!"
+        );
+        throw "input field empty";
+      }
       mutate(query, data.concat(body), false);
       await axios.post("/api/meeting", body);
       mutate(query);
@@ -82,7 +94,11 @@ const Form = () => {
               <td>{row.startTime}</td>
               <td>{row.endTime}</td>
               <td>
-                <img onClick={() => handleDelete(row._id)} src="./delete.svg" />
+                <img
+                  onClick={() => handleDelete(row._id)}
+                  src="./delete.svg"
+                  alt="delete icon"
+                />
               </td>
             </tr>
           ))}
