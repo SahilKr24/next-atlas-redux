@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import useSWR, { mutate } from "swr";
+import { FilterProvider } from "../../util/reducer";
 import Paper from "../Paper";
 import styles from "./Table.module.css";
 
@@ -14,7 +15,8 @@ const Form = () => {
     "End Time",
     "Actions",
   ];
-  const [value, setValue] = useState("");
+  const { state } = useContext(FilterProvider);
+  const value = state.name;
   const { data } = useSWR(`/api/meeting?search=${value}`);
 
   const clear = () => {

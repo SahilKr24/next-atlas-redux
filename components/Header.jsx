@@ -1,4 +1,4 @@
-const Header = () => {
+const Header = ({ heading }) => {
   return (
     <div
       style={{
@@ -7,7 +7,7 @@ const Header = () => {
         paddingTop: 25,
       }}
     >
-      My Meetings
+      {heading}
     </div>
   );
 };

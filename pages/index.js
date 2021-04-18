@@ -1,17 +1,20 @@
+import { useReducer } from "react";
 import Header from "../components/Header";
 import MainContent from "../components/MainContent";
 import SearchBar from "../components/SearchBar/SearchBar";
-import Sidebar from "../components/SideBar/SideBar";
 import Table from "../components/Table/Table";
+import { FilterProvider, INIT_STATE, reducer } from "../util/reducer";
 
 const Layout = () => {
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
   return (
     <div style={{ background: "#E5E5E5" }}>
-      <Sidebar />
       <MainContent>
-        <Header />
-        <SearchBar />
-        <Table />
+        <Header heading="My Meetings" />
+        <FilterProvider.Provider value={{ state: state, dispatch: dispatch }}>
+          <SearchBar />
+          <Table />
+        </FilterProvider.Provider>
       </MainContent>
     </div>
   );

@@ -46,49 +46,53 @@ export const SidebarComponent = ({ width, height }) => {
                 1806510
               </span>
             </div>
-            <div
-              style={{
-                padding: 15,
-                alignItems: "center",
-                paddingTop: 15,
-                paddingBottom: 15,
-                background: "#133B5C",
-                display: "flex",
-              }}
-            >
-              <img src="./home.svg" height={30} className={styles.icons} />
-              <span
+            <a href="/">
+              <div
                 style={{
-                  paddingLeft: 10,
-                  fontSize: 20,
-                  color: "#FFFFFF",
-                  display: status ? "block" : "none",
+                  padding: 15,
+                  alignItems: "center",
+                  paddingTop: 15,
+                  paddingBottom: 15,
+                  background: "#133B5C",
+                  display: "flex",
                 }}
               >
-                Home
-              </span>
-            </div>
-            <div
-              style={{
-                alignItems: "center",
-                padding: 15,
-                paddingTop: 15,
-                paddingBottom: 15,
-                display: "flex",
-              }}
-            >
-              <img src="./face.svg" height={30} className={styles.icons} />
-              <span
+                <img src="./home.svg" height={30} className={styles.icons} />
+                <span
+                  style={{
+                    paddingLeft: 10,
+                    fontSize: 20,
+                    color: "#FFFFFF",
+                    display: status ? "block" : "none",
+                  }}
+                >
+                  Home
+                </span>
+              </div>
+            </a>
+            <a href="/aboutme">
+              <div
                 style={{
-                  paddingLeft: 10,
-                  fontSize: 20,
-                  color: "#FFFFFF",
-                  display: status ? "block" : "none",
+                  alignItems: "center",
+                  padding: 15,
+                  paddingTop: 15,
+                  paddingBottom: 15,
+                  display: "flex",
                 }}
               >
-                About Me
-              </span>
-            </div>
+                <img src="./face.svg" height={30} className={styles.icons} />
+                <span
+                  style={{
+                    paddingLeft: 10,
+                    fontSize: 20,
+                    color: "#FFFFFF",
+                    display: status ? "block" : "none",
+                  }}
+                >
+                  About Me
+                </span>
+              </div>
+            </a>
           </div>
         </div>
       </div>
