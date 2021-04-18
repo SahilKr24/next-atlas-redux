@@ -7,6 +7,11 @@
   font-family: "Roboto";
 }
 
+.tbody {
+  height: 100px;
+  overflow-y: scroll;
+}
+
 .th {
   text-align: left;
   color: #1e5f74;

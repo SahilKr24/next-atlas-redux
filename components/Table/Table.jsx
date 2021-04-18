@@ -58,9 +58,8 @@ const Form = () => {
   const [endTime, setEndTime] = useState(null);
   return (
     <div>
-      <input value={value} onChange={(e) => setValue(e.target.value)} />
       <table className={styles.table}>
-        <tbody>
+        <tbody className={styles.tbody}>
           <tr>
             {headings.map((heading, i) => (
               <th className={styles.th} key={`table-heading-${i}`}>
